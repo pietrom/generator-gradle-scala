@@ -8,15 +8,15 @@ describe('generator-gradle-scala:app with default parameters', () => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({})
   })
 
-  it('creates .yo-rc.json', () => {
+  it('Creates .yo-rc.json', () => {
     assert.file([ '.yo-rc.json' ])
   })
 
-  it('creates build.gradle', () => {
+  it('Creates build.gradle', () => {
     assert.file([ 'build.gradle' ])
   })
 
-  it('creates settings.gradle', () => {
+  it('Creates settings.gradle', () => {
     assert.file([ 'settings.gradle' ])
   })  
 
@@ -35,6 +35,8 @@ describe('generator-gradle-scala:app with default parameters', () => {
   it('Defaut JUnit version is 4.12', () => { 
     assert.fileContent('build.gradle', `testCompile group: 'junit', name: 'junit', version:'4.12'`)
   })
+
+  it('Creates Hello.scala')
 })
 
 const prompts = { 
@@ -50,23 +52,11 @@ describe('generator-gradle-scala:app with custom parameters', () => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts(prompts)
   })
 
-  it('creates .yo-rc.json', () => {
-    assert.file([ '.yo-rc.json' ])
-  })
-
-  it('creates build.gradle', () => {
-    assert.file([ 'build.gradle' ])
-  })
-
-  it('creates settings.gradle', () => {
-    assert.file([ 'settings.gradle' ])
-  })
-
-  it('uses name from prompt in settings.gradle', () => {
+  it('Uses name from prompt in settings.gradle', () => {
     assert.fileContent('settings.gradle', 'rootProject.name = test-sample')
   })
 
-  it('uses groupId from prompt in build.gradle', () => {
+  it('Uses groupId from prompt in build.gradle', () => {
     assert.fileContent('build.gradle', `group = '${prompts.groupId}'`)
   })  
 
