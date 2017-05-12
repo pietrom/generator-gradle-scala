@@ -59,10 +59,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copyTpl(
-      this.templatePath('build.gradle'),
-      this.destinationPath('build.gradle'),
-      this.props
-    );
+    this.fs.copyTpl(this.templatePath('build.gradle'), this.destinationPath('build.gradle'), this.props);
+    this.fs.copyTpl(this.templatePath('settings.gradle'), this.destinationPath('settings.gradle'), this.props);
   }
 };

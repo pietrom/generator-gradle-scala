@@ -14,4 +14,12 @@ describe('generator-gradle-scala:app', () => {
       'build.gradle'
     ]);
   });
+
+  it('creates settings.gradle', () => {
+    assert.file(['settings.gradle']);
+  });
+
+  it('uses name from prompt in settings.gradle', () => {
+    assert.fileContent('settings.gradle', 'rootProject.name = test-sample');
+  });
 });
