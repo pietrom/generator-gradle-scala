@@ -10,9 +10,7 @@ describe('generator-gradle-scala:app', () => {
   });
 
   it('creates build.gradle', () => {
-    assert.file([
-      'build.gradle'
-    ]);
+    assert.file(['build.gradle']);
   });
 
   it('creates settings.gradle', () => {
