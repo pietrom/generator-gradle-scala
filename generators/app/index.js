@@ -62,13 +62,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('build.gradle'),
       this.destinationPath('build.gradle'),
-      {
-        scalaVersion: this.props.scalaVersion,
-        junitVersion: this.props.junitVersion,
-        groupId: this.props.groupId,
-        name: this.props.name,
-        description: this.props.description
-      }
+      this.props
     );
   }
 };
