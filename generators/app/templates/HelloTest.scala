@@ -1,6 +1,6 @@
 package <%= groupId %>
 
-import junit._
+import org.junit._
 
 class HelloTest {
 	@Test

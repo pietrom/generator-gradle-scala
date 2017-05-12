@@ -51,7 +51,7 @@ describe('generator-gradle-scala:app with custom parameters', () => {
   })
 
   it('Uses name from prompt in settings.gradle', () => {
-    assert.fileContent('settings.gradle', 'rootProject.name = test-sample')
+    assert.fileContent('settings.gradle', 'rootProject.name = \'test-sample\'')
   })
 
   it('Uses groupId from prompt in build.gradle', () => {
@@ -78,5 +78,9 @@ describe('generator-gradle-scala:app with custom parameters', () => {
   it('Creates HelloTest.scala in custom package', () => {
     const expected = `src/test/scala/${prompts.groupId.replace(/[.]/g, '/')}/hello/HelloTest.scala`
     assert.file(expected)
+  })
+
+  it('HelloTest.scala contains JUnit import', () => {
+    assert.fileContent(`src/test/scala/${prompts.groupId.replace(/[.]/g, '/')}/hello/HelloTest.scala`, 'import org.junit._')
   })
 })
