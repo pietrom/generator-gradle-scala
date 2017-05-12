@@ -9,12 +9,16 @@ describe('generator-gradle-scala:app', () => {
       .withPrompts({name: 'test-sample'})
   })
 
+  it('creates .yo-rc.json', () => {
+    assert.file([ '.yo-rc.json' ])
+  })
+
   it('creates build.gradle', () => {
-    assert.file(['build.gradle'])
+    assert.file([ 'build.gradle' ])
   })
 
   it('creates settings.gradle', () => {
-    assert.file(['settings.gradle'])
+    assert.file([ 'settings.gradle' ])
   })
 
   it('uses name from prompt in settings.gradle', () => {
