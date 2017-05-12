@@ -9,7 +9,7 @@ describe('generator-gradle-scala:app', () => {
       .withPrompts({name: 'test-sample'});
   });
 
-  it('creates files', () => {
+  it('creates build.gradle', () => {
     assert.file([
       'build.gradle'
     ]);
