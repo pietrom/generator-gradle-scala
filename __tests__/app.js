@@ -35,8 +35,6 @@ describe('generator-gradle-scala:app with default parameters', () => {
   it('Defaut JUnit version is 4.12', () => { 
     assert.fileContent('build.gradle', `testCompile group: 'junit', name: 'junit', version:'4.12'`)
   })
-
-  it('Creates Hello.scala')
 })
 
 const prompts = { 
@@ -70,5 +68,15 @@ describe('generator-gradle-scala:app with custom parameters', () => {
 
   it('Can provide custom JUnit version', () => { 
     assert.fileContent('build.gradle', `testCompile group: 'junit', name: 'junit', version:'${prompts.junitVersion}'`)
+  })
+
+  it('Creates Hello.scala in custom package', () => {
+    const expected = `src/main/scala/${prompts.groupId.replace(/[.]/g, '/')}/hello/Hello.scala`
+    assert.file(expected)
+  })
+
+  it('Creates HelloTest.scala in custom package', () => {
+    const expected = `src/test/scala/${prompts.groupId.replace(/[.]/g, '/')}/hello/HelloTest.scala`
+    assert.file(expected)
   })
 })

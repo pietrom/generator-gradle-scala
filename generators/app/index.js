@@ -65,7 +65,13 @@ module.exports = class extends Generator {
 
   writing() {
     this.config.save()
+      const pkg = this.props.groupId.replace(/[.]/g, '/')
+      const scalaMainSrc = `src/main/scala/${pkg}`
+      const scalaTestSrc = `src/test/scala/${pkg}`
+
     this.fs.copyTpl(this.templatePath('build.gradle'), this.destinationPath('build.gradle'), this.props)
     this.fs.copyTpl(this.templatePath('settings.gradle'), this.destinationPath('settings.gradle'), this.props)
+    this.fs.copyTpl(this.templatePath('Hello.scala'), this.destinationPath(`${scalaMainSrc}/hello/Hello.scala`), this.props)
+    this.fs.copyTpl(this.templatePath('HelloTest.scala'), this.destinationPath(`${scalaTestSrc}/hello/HelloTest.scala`), this.props)
   }
 }
