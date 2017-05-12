@@ -33,6 +33,11 @@ module.exports = class extends Generator {
       default: this.options.appname || path.basename(process.cwd())
     }, {
       type: 'input',
+      name: 'javaVersion',
+      message: 'Java version to use',
+      default: '1.8'
+    }, {
+      type: 'input',
       name: 'scalaVersion',
       message: 'Scala version to use',
       default: '2.11.8'
