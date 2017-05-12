@@ -6,6 +6,6 @@ class HelloTest {
 	@Test
 	def shouldSayHelloWorld : Unit = {
 		val sut = new Hello()
-		Assert.assertEquals("Hello, World!", sut.sayHello())
+		Assert.assertEquals("Hello, World!", sut.sayHello)
 	}
 }
