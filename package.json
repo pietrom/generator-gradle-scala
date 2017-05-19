@@ -1,6 +1,6 @@
 {
   "name": "generator-gradle-scala",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Basic Scala project setup, based on Gradle build tool",
   "homepage": "https://github.com/pietrom/generator-gradle-scala",
   "author": {

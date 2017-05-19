@@ -1,4 +1,4 @@
-package <%= groupId %>
+package <%= groupId %>.hello
 
 import org.junit._
 
